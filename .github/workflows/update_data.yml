@@ -2,7 +2,7 @@ name: Update Once Human Mods Data
 
 on:
   schedule:
-    - cron: '0 3 * * *'
+    - cron: '0 3 * * *'  # ежедневно в 03:00 UTC
   workflow_dispatch:
 
 jobs:
@@ -10,21 +10,40 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Клонируем репозиторий
       - uses: actions/checkout@v3
         with:
-          persist-credentials: true  # ключевой момент!
+          persist-credentials: true
 
+      # 2️⃣ Устанавливаем Python
       - uses: actions/setup-python@v4
         with:
           python-version: '3.12'
 
+      # 3️⃣ Устанавливаем зависимости
       - run: pip install requests beautifulsoup4
+
+      # 4️⃣ Запускаем парсер
       - run: python update_data.py
 
-      - name: Commit and push changes
+      # 5️⃣ Настраиваем git и пушим в отдельную ветку
+      - name: Commit changes
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
+          git checkout -B data-update
           git add data.json
           git diff --cached --quiet || git commit -m "Automated update of data.json"
-          git push
+          git push -u origin data-update --force
+
+      # 6️⃣ Создаём Pull Request в main
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: Automated update of data.json
+          branch: data-update
+          base: main
+          title: "Automated JSON update"
+          body: "This PR updates data.json automatically via GitHub Actions."
+          draft: false
