@@ -2,8 +2,8 @@ name: Update Once Human Mods Data
 
 on:
   schedule:
-    - cron: '0 3 * * *'  # каждый день в 3:00 UTC
-  workflow_dispatch:     # возможность запустить вручную
+    - cron: '0 3 * * *'  # ежедневное обновление
+  workflow_dispatch:     # запуск вручную
 
 jobs:
   update-json:
@@ -13,7 +13,7 @@ jobs:
       # 1. Клонируем репозиторий
       - uses: actions/checkout@v3
         with:
-          persist-credentials: true  # важно оставить true для использования GITHUB_TOKEN
+          persist-credentials: true  # обязательно true для использования GITHUB_TOKEN
 
       # 2. Устанавливаем Python
       - uses: actions/setup-python@v4
@@ -23,10 +23,10 @@ jobs:
       # 3. Устанавливаем зависимости
       - run: pip install requests beautifulsoup4
 
-      # 4. Запускаем парсер
+      # 4. Запускаем скрипт для обновления data.json
       - run: python update_data.py
 
-      # 5. Коммитим и пушим обновлённый data.json
+      # 5. Коммитим и пушим только если есть изменения
       - name: Commit and push changes
         run: |
           git config user.name "github-actions"
