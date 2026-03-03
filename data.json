@@ -1,0 +1,700 @@
+{
+  "meta": {
+    "game": "Once Human",
+    "languages": ["en","ru"],
+    "sources": [
+      "https://once-human.fandom.com/wiki/Mods",
+      "https://once-human.fandom.com/wiki/Mods/suffixes",
+      "https://game8.co/games/Once-Human/archives/468371",
+      "https://game8.co/games/Once-Human/archives/468372"
+    ],
+    "last_updated": "2026-03"
+  },
+
+  "containers": [
+    {
+      "id": "weapon_crate",
+      "name": {"en":"Weapon Crate","ru":"Ящик с оружейными модами"},
+      "description": {
+        "en":"Found throughout the world; contains weapon mods.",
+        "ru":"На карте встречаются ящики с модами для оружия."
+      },
+      "source":"https://game8.co/games/Once-Human/archives/468371"
+    },
+    {
+      "id":"gear_crate",
+      "name":{"en":"Gear Crate","ru":"Ящик с модами брони"},
+      "description":{
+        "en":"Contains armor mods found in the world.",
+        "ru":"Содержит моды для брони, найденные на карте."
+      },
+      "source":"https://game8.co/games/Once-Human/archives/468372"
+    },
+    {
+      "id":"securement_silo_sigma",
+      "name":{"en":"Securement Silo - Sigma","ru":"Силос - Sigma"},
+      "description":{
+        "en":"A securement silo that rewards armor mods upon completion.",
+        "ru":"Силос, после зачистки которого выпадают моды брони."
+      },
+      "source":"https://game8.co/games/Once-Human/archives/468372"
+    },
+    {
+      "id":"monolith_greed",
+      "name":{"en":"Monolith of Greed","ru":"Монолит Жадности"},
+      "description":{
+        "en":"Monolith dungeon that yields specific weapon mods.",
+        "ru":"Боевой подземелье, после которого выпадают определённые моды оружия."
+      },
+      "source":"https://game8.co/games/Once-Human/archives/468371"
+    }
+  ],
+  "mods": [
+    {
+      "id":"blaze_blessing",
+      "name":{"en":"Blaze Blessing","ru":"Blaze Blessing"},
+      "category":"weapon",
+      "tier":["IV","V"],
+      "slots":["all_weapons"],
+      "effect":{
+        "en":"When defeating a Burned enemy, restores HP.",
+        "ru":"При убийстве врага под эффектом Burn восстанавливает здоровье."
+      },
+      "containers":["monolith_greed","weapon_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468371"
+    },
+    {
+      "id":"bounce_rampage",
+      "name":{"en":"Bounce Rampage","ru":"Bounce Rampage"},
+      "category":"weapon",
+      "tier":["V"],
+      "slots":["all_weapons"],
+      "effect":{
+        "en":"Bounce deals increased damage the more targets are hit.",
+        "ru":"Bounce увеличивает урон при поражении нескольких целей."
+      },
+      "containers":["monolith_greed","weapon_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468371"
+    },
+    {
+      "id":"blaze_amplifier",
+      "name":{"en":"Blaze Amplifier","ru":"Blaze Amplifier"},
+      "category":"armor",
+      "tier":["IV","V"],
+      "slots":["mask"],
+      "effect":{
+        "en":"Every stack of Burn grants increased Psi Intensity damage.",
+        "ru":"Каждый стэк Burn увеличивает урон Psi Intensity."
+      },
+      "containers":["securement_silo_sigma","gear_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468372"
+    },
+    {
+      "id":"bullet_siphon",
+      "name":{"en":"Bullet Siphon","ru":"Bullet Siphon"},
+      "category":"armor",
+      "tier":["IV","V"],
+      "slots":["bottoms"],
+      "effect":{
+        "en":"Every 5 bullets consumed grants bonus weapon damage.",
+        "ru":"Каждые 5 выстрелов увеличивают урон оружием."
+      },
+      "containers":["securement_silo_sigma","gear_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468372"
+    {
+      "id":"blitzkrieg",
+      "name":{"en":"Blitzkrieg","ru":"Blitzkrieg"},
+      "category":"armor",
+      "tier":["IV","V"],
+      "slots":["mask"],
+      "effect":{
+        "en":"Fast Gunner stacks and additional Fire Rate bonuses.",
+        "ru":"Стэки Fast Gunner и бонус к скорострельности."
+      },
+      "containers":["securement_silo_sigma","gear_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468372"
+    },
+    {
+      "id":"burning_wrath",
+      "name":{"en":"Burning Wrath","ru":"Burning Wrath"},
+      "category":"weapon",
+      "tier":["V"],
+      "slots":["all_weapons"],
+      "effect":{
+        "en":"Burn damage is increased by 20% on enemies already on fire.",
+        "ru":"Урон от Burn увеличен на 20% против горящих врагов."
+      },
+      "containers":["monolith_greed","weapon_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468371"
+    },
+    {
+      "id":"chaos_core",
+      "name":{"en":"Chaos Core","ru":"Chaos Core"},
+      "category":"weapon",
+      "tier":["IV","V"],
+      "slots":["all_weapons"],
+      "effect":{
+        "en":"Critical hits trigger area damage around target.",
+        "ru":"Критический удар наносит урон области вокруг цели."
+      },
+      "containers":["monolith_greed","weapon_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468371"
+    },
+    {
+      "id":"cold_resonance",
+      "name":{"en":"Cold Resonance","ru":"Cold Resonance"},
+      "category":"armor",
+      "tier":["IV"],
+      "slots":["mask"],
+      "effect":{
+        "en":"Grants damage reduction against Frost attacks.",
+        "ru":"Даёт снижение урона от Frost атак."
+      },
+      "containers":["securement_silo_sigma","gear_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468372"
+    },
+    {
+      "id":"critical_momentum",
+      "name":{"en":"Critical Momentum","ru":"Critical Momentum"},
+      "category":"armor",
+      "tier":["V"],
+      "slots":["bottoms"],
+      "effect":{
+        "en":"Every critical hit increases movement speed temporarily.",
+        "ru":"Каждый критический удар временно увеличивает скорость передвижения."
+      },
+      "containers":["securement_silo_sigma","gear_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468372"
+    },
+    {
+      "id":"dart_strike",
+      "name":{"en":"Dart Strike","ru":"Dart Strike"},
+      "category":"weapon",
+      "tier":["IV","V"],
+      "slots":["all_weapons"],
+      "effect":{
+        "en":"High projectile speed and pierces first target.",
+        "ru":"Высокая скорость снаряда и пробивает первую цель."
+      },
+      "containers":["monolith_greed","weapon_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468371"
+    },
+    {
+      "id":"deflecting_shield",
+      "name":{"en":"Deflecting Shield","ru":"Deflecting Shield"},
+      "category":"armor",
+      "tier":["IV"],
+      "slots":["mask"],
+      "effect":{
+        "en":"Chance to reflect a portion of incoming damage.",
+        "ru":"Шанс отразить часть входящего урона."
+      },
+      "containers":["securement_silo_sigma","gear_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468372"
+    },
+    {
+      "id":"ember_edge",
+      "name":{"en":"Ember Edge","ru":"Ember Edge"},
+      "category":"weapon",
+      "tier":["V"],
+      "slots":["all_weapons"],
+      "effect":{
+        "en":"Burn effect stacks faster and deals bonus damage.",
+        "ru":"Эффект Burn накапливается быстрее и наносит дополнительный урон."
+      },
+      "containers":["monolith_greed","weapon_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468371"
+    },
+    {
+      "id":"energy_absorber",
+      "name":{"en":"Energy Absorber","ru":"Energy Absorber"},
+      "category":"armor",
+      "tier":["IV","V"],
+      "slots":["mask"],
+      "effect":{
+        "en":"Converts absorbed energy into temporary shield.",
+        "ru":"Поглощённая энергия преобразуется во временный щит."
+      },
+      "containers":["securement_silo_sigma","gear_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468372"
+    },
+    {
+      "id":"explosive_payload",
+      "name":{"en":"Explosive Payload","ru":"Explosive Payload"},
+      "category":"weapon",
+      "tier":["IV","V"],
+      "slots":["all_weapons"],
+      "effect":{
+        "en":"Bullets explode on impact, dealing area damage.",
+        "ru":"Пули взрываются при попадании, нанося урон по площади."
+      },
+      "containers":["monolith_greed","weapon_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468371"
+    },
+    {
+      "id":"frost_barrier",
+      "name":{"en":"Frost Barrier","ru":"Frost Barrier"},
+      "category":"armor",
+      "tier":["IV","V"],
+      "slots":["mask"],
+      "effect":{
+        "en":"Reduces damage from Frost attacks and slows attackers.",
+        "ru":"Снижает урон от Frost атак и замедляет атакующих."
+      },
+      "containers":["securement_silo_sigma","gear_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468372"
+    },
+    {
+      "id":"fusion_charge",
+      "name":{"en":"Fusion Charge","ru":"Fusion Charge"},
+      "category":"weapon",
+      "tier":["V"],
+      "slots":["all_weapons"],
+      "effect":{
+        "en":"Every 5 shots builds an energy explosion.",
+        "ru":"Каждые 5 выстрелов создают энергетический взрыв."
+      },
+      "containers":["monolith_greed","weapon_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468371"
+    },
+    {
+      "id":"gravity_field",
+      "name":{"en":"Gravity Field","ru":"Gravity Field"},
+      "category":"armor",
+      "tier":["IV"],
+      "slots":["bottoms"],
+      "effect":{
+        "en":"Reduces knockback and pulls enemies closer when damaged.",
+        "ru":"Снижает отдачу и притягивает врагов при получении урона."
+      },
+      "containers":["securement_silo_sigma","gear_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468372"
+    },
+    {
+      "id":"high_voltage",
+      "name":{"en":"High Voltage","ru":"High Voltage"},
+      "category":"weapon",
+      "tier":["IV","V"],
+      "slots":["all_weapons"],
+      "effect":{
+        "en":"Electric damage chains to nearby enemies.",
+        "ru":"Электрический урон переходит на ближайших врагов."
+      },
+      "containers":["monolith_greed","weapon_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468371"
+    },
+    {
+      "id":"iron_skin",
+      "name":{"en":"Iron Skin","ru":"Iron Skin"},
+      "category":"armor",
+      "tier":["V"],
+      "slots":["torso"],
+      "effect":{
+        "en":"Damage taken reduced by 15% while standing still.",
+        "ru":"Получаемый урон снижается на 15%, когда стоишь на месте."
+      },
+      "containers":["securement_silo_sigma","gear_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468372"
+    },
+    {
+      "id":"jet_burst",
+      "name":{"en":"Jet Burst","ru":"Jet Burst"},
+      "category":"weapon",
+      "tier":["V"],
+      "slots":["all_weapons"],
+      "effect":{
+        "en":"Rapid fire bursts with increased damage per hit.",
+        "ru":"Серия быстрых выстрелов с увеличенным уроном за удар."
+      },
+      "containers":["monolith_greed","weapon_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468371"
+    },
+    {
+      "id":"kinetic_absorption",
+      "name":{"en":"Kinetic Absorption","ru":"Kinetic Absorption"},
+      "category":"armor",
+      "tier":["IV","V"],
+      "slots":["mask","torso"],
+      "effect":{
+        "en":"Converts received kinetic damage into shields.",
+        "ru":"Преобразует полученный кинетический урон в щит."
+      },
+      "containers":["securement_silo_sigma","gear_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468372"
+    },
+    {
+      "id":"lightning_strike",
+      "name":{"en":"Lightning Strike","ru":"Lightning Strike"},
+      "category":"weapon",
+      "tier":["V"],
+      "slots":["all_weapons"],
+      "effect":{
+        "en":"Electrocutes targets and chains to additional enemies.",
+        "ru":"Парализует цель и переходит на соседних врагов."
+      },
+      "containers":["monolith_greed","weapon_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468371"
+    },
+    {
+      "id":"magnetic_field",
+      "name":{"en":"Magnetic Field","ru":"Magnetic Field"},
+      "category":"armor",
+      "tier":["IV"],
+      "slots":["torso"],
+      "effect":{
+        "en":"Pulls dropped items and bullets toward the wearer.",
+        "ru":"Притягивает выпавшие предметы и пули к носителю."
+      },
+      "containers":["securement_silo_sigma","gear_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468372"
+    },
+    {
+      "id":"plasma_cutter",
+      "name":{"en":"Plasma Cutter","ru":"Plasma Cutter"},
+      "category":"weapon",
+      "tier":["V"],
+      "slots":["all_weapons"],
+      "effect":{
+        "en":"High plasma damage; pierces armored enemies.",
+        "ru":"Высокий плазменный урон; пробивает бронированных врагов."
+      },
+      "containers":["monolith_greed","weapon_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468371"
+    },
+    {
+      "id":"reflective_plating",
+      "name":{"en":"Reflective Plating","ru":"Reflective Plating"},
+      "category":"armor",
+      "tier":["V"],
+      "slots":["torso"],
+      "effect":{
+        "en":"Reflects a portion of ranged damage back to enemies.",
+        "ru":"Отражает часть дистанционного урона обратно врагам."
+      },
+      "containers":["securement_silo_sigma","gear_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468372"
+    },
+    {
+      "id":"ricochet_bullet",
+      "name":{"en":"Ricochet Bullet","ru":"Ricochet Bullet"},
+      "category":"weapon",
+      "tier":["IV"],
+      "slots":["all_weapons"],
+      "effect":{
+        "en":"Bullets bounce off surfaces to hit additional targets.",
+        "ru":"Пули отскакивают от поверхностей, поражая дополнительных врагов."
+      },
+      "containers":["monolith_greed","weapon_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468371"
+    },
+    {
+      "id":"shock_absorb",
+      "name":{"en":"Shock Absorb","ru":"Shock Absorb"},
+      "category":"armor",
+      "tier":["IV","V"],
+      "slots":["mask","torso"],
+      "effect":{
+        "en":"Reduces incoming electric damage by 20%.",
+        "ru":"Снижает входящий электрический урон на 20%."
+      },
+      "containers":["securement_silo_sigma","gear_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468372"
+    },
+    {
+      "id":"smoke_trail",
+      "name":{"en":"Smoke Trail","ru":"Smoke Trail"},
+      "category":"weapon",
+      "tier":["V"],
+      "slots":["all_weapons"],
+      "effect":{
+        "en":"Leaves smoke behind projectiles, causing vision obstruction.",
+        "ru":"Проектиль оставляет дым, затрудняющий обзор."
+      },
+      "containers":["monolith_greed","weapon_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468371"
+    },
+    {
+      "id":"spike_armor",
+      "name":{"en":"Spike Armor","ru":"Spike Armor"},
+      "category":"armor",
+      "tier":["V"],
+      "slots":["torso"],
+      "effect":{
+        "en":"Deals damage to enemies who strike the wearer in melee.",
+        "ru":"Наносит урон врагам, атакующим владельца в ближнем бою."
+      },
+      "containers":["securement_silo_sigma","gear_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468372"
+    },
+    {
+      "id":"thermal_charge",
+      "name":{"en":"Thermal Charge","ru":"Thermal Charge"},
+      "category":"weapon",
+      "tier":["IV","V"],
+      "slots":["all_weapons"],
+      "effect":{
+        "en":"Deals bonus heat damage to targets below 50% HP.",
+        "ru":"Наносит дополнительный тепловой урон целям с HP ниже 50%."
+      },
+      "containers":["monolith_greed","weapon_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468371"
+    },
+    {
+      "id":"titanium_shell",
+      "name":{"en":"Titanium Shell","ru":"Titanium Shell"},
+      "category":"armor",
+      "tier":["IV","V"],
+      "slots":["mask","torso"],
+      "effect":{
+        "en":"Reduces incoming damage by a flat 10%.",
+        "ru":"Снижает входящий урон на фиксированные 10%."
+      },
+      "containers":["securement_silo_sigma","gear_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468372"
+    },
+    {
+      "id":"venom_strike",
+      "name":{"en":"Venom Strike","ru":"Venom Strike"},
+      "category":"weapon",
+      "tier":["V"],
+      "slots":["all_weapons"],
+      "effect":{
+        "en":"Applies poison to targets over 5 seconds.",
+        "ru":"Накладывает яд на цели на 5 секунд."
+      },
+      "containers":["monolith_greed","weapon_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468371"
+    },
+    {
+      "id":"vortex_shield",
+      "name":{"en":"Vortex Shield","ru":"Vortex Shield"},
+      "category":"armor",
+      "tier":["V"],
+      "slots":["torso"],
+      "effect":{
+        "en":"Pulls nearby projectiles toward wearer, reducing damage.",
+        "ru":"Притягивает рядом летящие снаряды к носителю, снижая урон."
+      },
+      "containers":["securement_silo_sigma","gear_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468372"
+    },
+    {
+      "id":"warrior_spirit",
+      "name":{"en":"Warrior Spirit","ru":"Warrior Spirit"},
+      "category":"armor",
+      "tier":["IV","V"],
+      "slots":["torso","bottoms"],
+      "effect":{
+        "en":"Increases melee damage after taking damage.",
+        "ru":"Увеличивает урон в ближнем бою после получения урона."
+      },
+      "containers":["securement_silo_sigma","gear_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468372"
+    },
+    {
+      "id":"rapid_fire_module",
+      "name":{"en":"Rapid Fire Module","ru":"Rapid Fire Module"},
+      "category":"weapon",
+      "tier":["V"],
+      "slots":["all_weapons"],
+      "effect":{
+        "en":"Increases fire rate with each consecutive hit.",
+        "ru":"Увеличивает скорострельность при каждом последующем попадании."
+      },
+      "containers":["monolith_greed","weapon_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468371"
+    },
+    {
+      "id":"shockwave_emitter",
+      "name":{"en":"Shockwave Emitter","ru":"Shockwave Emitter"},
+      "category":"weapon",
+      "tier":["V"],
+      "slots":["all_weapons"],
+      "effect":{
+        "en":"Hits generate a radial shockwave affecting nearby enemies.",
+        "ru":"Попадания создают радиальную ударную волну, поражая близких врагов."
+      },
+      "containers":["monolith_greed","weapon_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468371"
+    },
+    {
+      "id":"frostbite_plate",
+      "name":{"en":"Frostbite Plate","ru":"Frostbite Plate"},
+      "category":"armor",
+      "tier":["V"],
+      "slots":["torso"],
+      "effect":{
+        "en":"Freezes attackers on critical hits.",
+        "ru":"Замораживает атакующих при критическом ударе."
+      },
+      "containers":["securement_silo_sigma","gear_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468372"
+    },
+    {
+      "id":"piercing_bolt",
+      "name":{"en":"Piercing Bolt","ru":"Piercing Bolt"},
+      "category":"weapon",
+      "tier":["IV","V"],
+      "slots":["all_weapons"],
+      "effect":{
+        "en":"Projectiles pierce through multiple enemies.",
+        "ru":"Снаряды пробивают несколько врагов подряд."
+      },
+      "containers":["monolith_greed","weapon_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468371"
+    },
+    {
+      "id":"aegis_core",
+      "name":{"en":"Aegis Core","ru":"Aegis Core"},
+      "category":"armor",
+      "tier":["V"],
+      "slots":["torso","mask"],
+      "effect":{
+        "en":"Generates a temporary shield after taking heavy damage.",
+        "ru":"Создаёт временный щит после получения сильного урона."
+      },
+      "containers":["securement_silo_sigma","gear_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468372"
+    },
+    {
+      "id":"voltaic_edge",
+      "name":{"en":"Voltaic Edge","ru":"Voltaic Edge"},
+      "category":"weapon",
+      "tier":["V"],
+      "slots":["all_weapons"],
+      "effect":{
+        "en":"Adds electric damage and chance to stun enemies.",
+        "ru":"Добавляет электрический урон и шанс оглушить врагов."
+      },
+      "containers":["monolith_greed","weapon_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468371"
+    },
+    {
+      "id":"guardian_shield",
+      "name":{"en":"Guardian Shield","ru":"Guardian Shield"},
+      "category":"armor",
+      "tier":["V"],
+      "slots":["torso"],
+      "effect":{
+        "en":"Blocks a portion of all incoming damage for 3 seconds when health drops below 20%.",
+        "ru":"Блокирует часть входящего урона на 3 секунды при HP ниже 20%."
+      },
+      "containers":["securement_silo_sigma","gear_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468372"
+    },
+    {
+      "id":"venomous_strike",
+      "name":{"en":"Venomous Strike","ru":"Venomous Strike"},
+      "category":"weapon",
+      "tier":["V"],
+      "slots":["all_weapons"],
+      "effect":{
+        "en":"Applies poison over time and reduces target healing.",
+        "ru":"Накладывает яд со временем и снижает лечение цели."
+      },
+      "containers":["monolith_greed","weapon_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468371"
+    },
+    {
+      "id":"adaptive_armor",
+      "name":{"en":"Adaptive Armor","ru":"Adaptive Armor"},
+      "category":"armor",
+      "tier":["IV","V"],
+      "slots":["mask","torso","bottoms"],
+      "effect":{
+        "en":"Adjusts resistance dynamically depending on last received damage type.",
+        "ru":"Динамически меняет сопротивление в зависимости от типа последнего полученного урона."
+      },
+      "containers":["securement_silo_sigma","gear_crate"],
+      "source":"https://game8.co/games/Once-Human/archives/468372"
+    }
+  ]
+}
+{
+  "suffixes": [
+    {
+      "id":"violent",
+      "name":{"en":"Violent","ru":"Violent"},
+      "type_en":"Crit DMG",
+      "type_ru":"Урон по криту",
+      "effect_base":{
+        "common":"+3%",
+        "uncommon":"+6%",
+        "rare":"+9%",
+        "epic":"+12%",
+        "legendary":"+15%"
+      },
+      "source":"https://once-human.fandom.com/wiki/Mods/suffixes"
+    },
+    {
+      "id":"precision",
+      "name":{"en":"Precision","ru":"Precision"},
+      "type_en":"Weakspot DMG",
+      "type_ru":"Урон по слабым зонам",
+      "effect_base":{
+        "common":"+1.8%",
+        "uncommon":"+3.6%",
+        "rare":"+5.4%",
+        "epic":"+7.2%",
+        "legendary":"+9.0%"
+      },
+      "source":"https://once-human.fandom.com/wiki/Mods/suffixes"
+    },
+    {
+      "id":"talent",
+      "name":{"en":"Talents","ru":"Talents"},
+      "type_en":"Special effect",
+      "type_ru":"Особый эффект",
+      "effect_base":{
+        "common":"+1 effect stack",
+        "uncommon":"+2 effect stacks",
+        "rare":"+3 effect stacks",
+        "epic":"+4 effect stacks",
+        "legendary":"+5 effect stacks"
+      },
+      "source":"https://once-human.fandom.com/wiki/Mods/suffixes"
+    },
+    {
+      "id":"frostbite",
+      "name":{"en":"Frostbite","ru":"Frostbite"},
+      "type_en":"Frost DMG",
+      "type_ru":"Урон Frost",
+      "effect_base":{
+        "common":"+3%",
+        "uncommon":"+6%",
+        "rare":"+9%",
+        "epic":"+12%",
+        "legendary":"+15%"
+      },
+      "source":"https://once-human.fandom.com/wiki/Mods/suffixes"
+    },
+    {
+      "id":"burning",
+      "name":{"en":"Burning","ru":"Burning"},
+      "type_en":"Fire DMG",
+      "type_ru":"Огненный урон",
+      "effect_base":{
+        "common":"+4%",
+        "uncommon":"+8%",
+        "rare":"+12%",
+        "epic":"+16%",
+        "legendary":"+20%"
+      },
+      "source":"https://once-human.fandom.com/wiki/Mods/suffixes"
+    },
+    {
+      "id":"electric",
+      "name":{"en":"Electric","ru":"Electric"},
+      "type_en":"Electric DMG",
+      "type_ru":"Электро-урон",
+      "effect_base":{
+        "common":"+2%",
+        "uncommon":"+4%",
+        "rare":"+6%",
+        "epic":"+8%",
+        "legendary":"+10%"
+      },
+      "source":"https://once-human.fandom.com/wiki/Mods/suffixes"
+    }
+  ]
+}
