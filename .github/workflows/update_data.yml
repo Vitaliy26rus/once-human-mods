@@ -2,36 +2,40 @@ name: Update Once Human Mods Data
 
 on:
   schedule:
-    - cron: '0 3 * * *'  # ежедневно в 03:00 UTC
-  workflow_dispatch:     # запуск вручную
+    - cron: '0 3 * * *'  # ежедневно
+  workflow_dispatch:
 
 jobs:
   update-json:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Клонируем репозиторий
+      # Клонируем репозиторий
       - uses: actions/checkout@v3
-        with:
-          persist-credentials: true  # обязательно, чтобы использовать встроенный токен
 
-      # 2️⃣ Устанавливаем Python
+      # Устанавливаем Python
       - uses: actions/setup-python@v4
         with:
           python-version: '3.12'
 
-      # 3️⃣ Устанавливаем зависимости
+      # Устанавливаем зависимости
       - run: pip install requests beautifulsoup4
 
-      # 4️⃣ Запускаем скрипт, который обновляет data.json
+      # Запускаем скрипт для обновления data.json
       - run: python update_data.py
 
-      # 5️⃣ Коммитим изменения и пушим в ветку data-update
-      - name: Commit and push to data-update branch
+      # Настраиваем SSH агент
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.8.1
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      # Коммитим и пушим изменения в ветку data-update
+      - name: Commit and push changes
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git checkout -B data-update
           git add data.json
           git diff --cached --quiet || git commit -m "Automated update of data.json"
-          git push -u origin data-update --force
+          git push git@github.com:Vitaliy26rus/once-human-mods.git data-update --force
