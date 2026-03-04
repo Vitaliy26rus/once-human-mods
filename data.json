@@ -1,42 +1,49 @@
 {
-  "meta": {
-    "game": "Once Human",
-    "languages": [
-      "en",
-      "ru"
-    ],
-    "sources": [
-      "https://game8.co/games/Once-Human/archives/468371",
-      "https://game8.co/games/Once-Human/archives/468372",
-      "https://game8.co/games/Once-Human/archives/460076"
-    ]
-  },
+  "weapons": [
+    {
+      "name": {"en": "Assault Rifle", "ru": "Штурмовая винтовка"},
+      "mods": [
+        {"name": {"en": "Extended Magazine", "ru": "Удлиненный магазин"}, "source": "Weapon Crate"},
+        {"name": {"en": "Silencer", "ru": "Глушитель"}, "source": "Weapon Crate"}
+      ]
+    }
+  ],
+  "armor": [
+    {
+      "name": {"en": "Kevlar Vest", "ru": "Кевларовый жилет"},
+      "mods": [
+        {"name": {"en": "Reinforced Plates", "ru": "Усиленные пластины"}, "source": "Gear Crate"}
+      ]
+    }
+  ],
   "containers": [
     {
       "id": "weapon_crate",
-      "name": {
-        "en": "Weapon Crate",
-        "ru": "Ящик с оружейными модами"
-      },
-      "description": {
-        "en": "Weapon mods container",
-        "ru": "Ящик с оружейными модами"
-      },
+      "name": {"en": "Weapon Crate", "ru": "Ящик с оружейными модами"},
+      "description": {"en": "Weapon mods container", "ru": "Ящик с модами оружия"},
       "source": "https://game8.co/games/Once-Human/archives/468371"
     },
     {
       "id": "gear_crate",
-      "name": {
-        "en": "Gear Crate",
-        "ru": "Ящик с модами брони"
-      },
-      "description": {
-        "en": "Armor mods container",
-        "ru": "Ящик с модами брони"
-      },
+      "name": {"en": "Gear Crate", "ru": "Ящик с модами брони"},
+      "description": {"en": "Armor mods container", "ru": "Ящик с модами брони"},
       "source": "https://game8.co/games/Once-Human/archives/468372"
     }
   ],
-  "mods": [],
-  "suffixes": []
+  "sources": [
+    {
+      "mod_name": {"en": "Extended Magazine", "ru": "Удлиненный магазин"},
+      "container": {"en": "Weapon Crate", "ru": "Ящик с оружейными модами"}
+    }
+  ],
+  "ui_labels": {
+    "columns": {
+      "name": {"en": "Name", "ru": "Название"},
+      "mod": {"en": "Mod", "ru": "Модификация"},
+      "container": {"en": "Container", "ru": "Контейнер"},
+      "description": {"en": "Description", "ru": "Описание"},
+      "source": {"en": "Source", "ru": "Источник"}
+    },
+    "table_title": {"en": "Once Human Mods", "ru": "Моды Once Human"}
+  }
 }
