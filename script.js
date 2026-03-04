@@ -1,34 +1,63 @@
-let modsData = null;
-fetch('data.json')
-  .then(res => res.json())
-  .then(data => { modsData = data; renderTable(); });
+const jsonUrl = "data.json";
+let data, lang = "ru";
 
-const tableBody = document.querySelector('#modTable tbody');
-const searchInput = document.getElementById('search');
-const langSelect = document.getElementById('lang');
-
-searchInput.addEventListener('input', renderTable);
-langSelect.addEventListener('change', renderTable);
+async function loadData() {
+  const res = await fetch(jsonUrl);
+  data = await res.json();
+  renderTable();
+}
 
 function renderTable() {
-  if(!modsData) return;
-  const query = searchInput.value.toLowerCase();
-  const lang = langSelect.value;
-  tableBody.innerHTML = '';
-  modsData.mods.forEach(mod => {
-    const name = mod.name[lang].toLowerCase();
-    if(name.includes(query)) {
-      const containers = mod.containers.map(cid => {
-        const c = modsData.containers.find(x => x.id===cid);
-        return c ? c.name[lang] : cid;
-      }).join(', ');
-      const tr = document.createElement('tr');
-      tr.innerHTML = `<td>${mod.name[lang]}</td>
-                      <td>${mod.category}</td>
-                      <td>${mod.tier.join(', ')}</td>
-                      <td>${mod.effect[lang]}</td>
-                      <td>${containers}</td>`;
-      tableBody.appendChild(tr);
-    }
+  const columns = data.ui_labels.columns;
+  const headerRow = document.getElementById("table-header");
+  headerRow.innerHTML = "";
+  ["name", "mod", "container", "description", "source"].forEach(col => {
+    const th = document.createElement("th");
+    th.textContent = columns[col][lang];
+    headerRow.appendChild(th);
+  });
+
+  document.getElementById("table-title").textContent = data.ui_labels.table_title[lang];
+
+  const tbody = document.getElementById("table-body");
+  tbody.innerHTML = "";
+
+  // Оружие
+  data.weapons.forEach(w => {
+    w.mods.forEach(m => {
+      const tr = document.createElement("tr");
+      const cells = [
+        w.name[lang],
+        m.name[lang],
+        m.source,
+        "",
+        ""
+      ];
+      cells.forEach(c => { const td = document.createElement("td"); td.textContent = c; tr.appendChild(td); });
+      tbody.appendChild(tr);
+    });
+  });
+
+  // Броня
+  data.armor.forEach(a => {
+    a.mods.forEach(m => {
+      const tr = document.createElement("tr");
+      const cells = [
+        a.name[lang],
+        m.name[lang],
+        m.source,
+        "",
+        ""
+      ];
+      cells.forEach(c => { const td = document.createElement("td"); td.textContent = c; tr.appendChild(td); });
+      tbody.appendChild(tr);
+    });
   });
 }
+
+document.getElementById("lang-select").addEventListener("change", e => {
+  lang = e.target.value;
+  renderTable();
+});
+
+loadData();
