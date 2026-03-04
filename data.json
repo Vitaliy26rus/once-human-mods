@@ -6,6 +6,12 @@
         {"name": {"en": "Extended Magazine", "ru": "Удлиненный магазин"}, "source": "Weapon Crate"},
         {"name": {"en": "Silencer", "ru": "Глушитель"}, "source": "Weapon Crate"}
       ]
+    },
+    {
+      "name": {"en": "Shotgun", "ru": "Дробовик"},
+      "mods": [
+        {"name": {"en": "Laser Sight", "ru": "Лазерный прицел"}, "source": "Weapon Crate"}
+      ]
     }
   ],
   "armor": [
@@ -13,6 +19,12 @@
       "name": {"en": "Kevlar Vest", "ru": "Кевларовый жилет"},
       "mods": [
         {"name": {"en": "Reinforced Plates", "ru": "Усиленные пластины"}, "source": "Gear Crate"}
+      ]
+    },
+    {
+      "name": {"en": "Combat Helmet", "ru": "Боевой шлем"},
+      "mods": [
+        {"name": {"en": "Night Vision", "ru": "Ночное видение"}, "source": "Gear Crate"}
       ]
     }
   ],
@@ -34,6 +46,14 @@
     {
       "mod_name": {"en": "Extended Magazine", "ru": "Удлиненный магазин"},
       "container": {"en": "Weapon Crate", "ru": "Ящик с оружейными модами"}
+    },
+    {
+      "mod_name": {"en": "Silencer", "ru": "Глушитель"},
+      "container": {"en": "Weapon Crate", "ru": "Ящик с оружейными модами"}
+    },
+    {
+      "mod_name": {"en": "Reinforced Plates", "ru": "Усиленные пластины"},
+      "container": {"en": "Gear Crate", "ru": "Ящик с модами брони"}
     }
   ],
   "ui_labels": {

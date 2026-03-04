@@ -36,7 +36,6 @@
     }
 
     function renderTable() {
-      // Заголовки
       const columns = data.ui_labels.columns;
       const headerRow = document.getElementById("table-header");
       headerRow.innerHTML = "";
@@ -46,13 +45,12 @@
         headerRow.appendChild(th);
       });
 
-      // Заголовок таблицы
       document.getElementById("table-title").textContent = data.ui_labels.table_title[lang];
 
-      // Содержимое
       const tbody = document.getElementById("table-body");
       tbody.innerHTML = "";
 
+      // Оружие
       data.weapons.forEach(w => {
         w.mods.forEach(m => {
           const tr = document.createElement("tr");
@@ -60,14 +58,15 @@
             w.name[lang],
             m.name[lang],
             m.source,
-            "", // description пустая для модов
-            ""  // источник можно добавить при желании
+            "",
+            ""
           ];
           cells.forEach(c => { const td = document.createElement("td"); td.textContent = c; tr.appendChild(td); });
           tbody.appendChild(tr);
         });
       });
 
+      // Броня
       data.armor.forEach(a => {
         a.mods.forEach(m => {
           const tr = document.createElement("tr");

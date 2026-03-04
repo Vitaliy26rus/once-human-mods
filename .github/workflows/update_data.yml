@@ -1,33 +1,28 @@
-name: Update Once Human Mods Data (Direct to Main)
+name: Update Once Human Mods Data
 
 on:
   schedule:
-    - cron: '0 3 * * *'  # ежедневно в 03:00 UTC
+    - cron: '0 3 * * *'  # ежедневно 03:00 UTC
   workflow_dispatch:
 
 jobs:
   update-json:
-    runs-on: ubuntu-latest  # или windows-latest
+    runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Клонируем репозиторий без встроенного токена
       - uses: actions/checkout@v3
         with:
-          persist-credentials: false  # отключаем github-actions[bot]
+          persist-credentials: false
 
-      # 2️⃣ Устанавливаем Python
       - uses: actions/setup-python@v4
         with:
           python-version: '3.12'
 
-      # 3️⃣ Устанавливаем зависимости
       - run: pip install requests beautifulsoup4
 
-      # 4️⃣ Запускаем парсер / обновление JSON
       - run: python update_data.py
 
-      # 5️⃣ Коммитим и пушим прямо в main через PAT
-      - name: Commit and push to main
+      - name: Commit and push
         env:
           PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
