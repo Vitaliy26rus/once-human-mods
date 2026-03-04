@@ -1,30 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-<meta charset="UTF-8">
-<title>Once Human Mods Encyclopedia</title>
-<style>
-body { font-family: Arial, sans-serif; padding: 20px; }
-input { margin-bottom: 10px; padding: 5px; width: 300px; }
-table { border-collapse: collapse; width: 100%; margin-top: 10px; }
-th, td { border: 1px solid #ccc; padding: 5px; text-align: left; }
-</style>
+  <meta charset="UTF-8">
+  <title>Once Human Mods</title>
+  <style>
+    table {border-collapse: collapse; width: 100%;}
+    th, td {border: 1px solid #aaa; padding: 8px; text-align: left;}
+    select {margin: 10px 0;}
+  </style>
 </head>
 <body>
-<h1>Once Human Mods Encyclopedia</h1>
-<input type="text" id="search" placeholder="Search mods...">
-<select id="lang">
-  <option value="en">English</option>
-  <option value="ru">Русский</option>
-</select>
-<table id="modTable">
-  <thead>
-    <tr>
-      <th>Name</th><th>Category</th><th>Tier</th><th>Effect</th><th>Containers</th>
-    </tr>
-  </thead>
-  <tbody></tbody>
-</table>
-<script src="script.js"></script>
+  <h1 id="table-title"></h1>
+
+  <label for="lang-select">Язык / Language:</label>
+  <select id="lang-select">
+    <option value="ru" selected>Русский</option>
+    <option value="en">English</option>
+  </select>
+
+  <table id="mods-table">
+    <thead>
+      <tr id="table-header"></tr>
+    </thead>
+    <tbody id="table-body"></tbody>
+  </table>
+
+  <script>
+    const jsonUrl = "data.json"; // путь к JSON
+    let data, lang = "ru";
+
+    async function loadData() {
+      const res = await fetch(jsonUrl);
+      data = await res.json();
+      renderTable();
+    }
+
+    function renderTable() {
+      // Заголовки
+      const columns = data.ui_labels.columns;
+      const headerRow = document.getElementById("table-header");
+      headerRow.innerHTML = "";
+      ["name", "mod", "container", "description", "source"].forEach(col => {
+        const th = document.createElement("th");
+        th.textContent = columns[col][lang];
+        headerRow.appendChild(th);
+      });
+
+      // Заголовок таблицы
+      document.getElementById("table-title").textContent = data.ui_labels.table_title[lang];
+
+      // Содержимое
+      const tbody = document.getElementById("table-body");
+      tbody.innerHTML = "";
+
+      data.weapons.forEach(w => {
+        w.mods.forEach(m => {
+          const tr = document.createElement("tr");
+          const cells = [
+            w.name[lang],
+            m.name[lang],
+            m.source,
+            "", // description пустая для модов
+            ""  // источник можно добавить при желании
+          ];
+          cells.forEach(c => { const td = document.createElement("td"); td.textContent = c; tr.appendChild(td); });
+          tbody.appendChild(tr);
+        });
+      });
+
+      data.armor.forEach(a => {
+        a.mods.forEach(m => {
+          const tr = document.createElement("tr");
+          const cells = [
+            a.name[lang],
+            m.name[lang],
+            m.source,
+            "",
+            ""
+          ];
+          cells.forEach(c => { const td = document.createElement("td"); td.textContent = c; tr.appendChild(td); });
+          tbody.appendChild(tr);
+        });
+      });
+    }
+
+    document.getElementById("lang-select").addEventListener("change", e => {
+      lang = e.target.value;
+      renderTable();
+    });
+
+    loadData();
+  </script>
 </body>
 </html>
