@@ -1,40 +1,38 @@
-name: Update Once Human Mods Data
+name: Update Once Human Mods Data (Direct to Main)
 
 on:
   schedule:
-    - cron: '0 3 * * *'
+    - cron: '0 3 * * *'  # ежедневно в 03:00 UTC
   workflow_dispatch:
 
 jobs:
   update-json:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # или windows-latest
 
     steps:
-      # 1️⃣ Checkout без встроенного токена
+      # 1️⃣ Клонируем репозиторий без встроенного токена
       - uses: actions/checkout@v3
         with:
           persist-credentials: false  # отключаем github-actions[bot]
 
-      # 2️⃣ Python
+      # 2️⃣ Устанавливаем Python
       - uses: actions/setup-python@v4
         with:
           python-version: '3.12'
 
-      # 3️⃣ Зависимости
+      # 3️⃣ Устанавливаем зависимости
       - run: pip install requests beautifulsoup4
 
-      # 4️⃣ Обновление JSON
+      # 4️⃣ Запускаем парсер / обновление JSON
       - run: python update_data.py
 
-      # 5️⃣ Коммит и push через PAT
-      - name: Commit and push to data-update
+      # 5️⃣ Коммитим и пушим прямо в main через PAT
+      - name: Commit and push to main
         env:
           PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git checkout -B data-update
           git add data.json
           git diff --cached --quiet || git commit -m "Automated update of data.json"
-          # push с токеном в URL, без интерактивного запроса
-          git push https://$PAT_TOKEN@github.com/Vitaliy26rus/once-human-mods.git data-update --force
+          git push https://$PAT_TOKEN@github.com/Vitaliy26rus/once-human-mods.git main --force
