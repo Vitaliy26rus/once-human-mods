@@ -2,12 +2,12 @@ name: Update Once Human Mods Data
 
 on:
   schedule:
-    - cron: '0 3 * * *' # ежедневно в 03:00 UTC
+    - cron: '0 3 * * *'  # ежедневно
   workflow_dispatch:
 
 jobs:
   update-json:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest  # или ubuntu-latest, не важно
 
     steps:
       # 1️⃣ Клонируем репозиторий
@@ -21,25 +21,17 @@ jobs:
       # 3️⃣ Устанавливаем зависимости
       - run: pip install requests beautifulsoup4
 
-      # 4️⃣ Запускаем парсер
+      # 4️⃣ Обновляем JSON
       - run: python update_data.py
 
-      # 5️⃣ Настраиваем SSH агент вручную
-      - name: Setup SSH
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-          eval "$(ssh-agent -s)"
-          ssh-add ~/.ssh/id_ed25519
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-
-      # 6️⃣ Коммитим и пушим в ветку data-update
-      - name: Commit and push changes
+      # 5️⃣ Коммитим и пушим в ветку data-update через PAT
+      - name: Commit and push
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git checkout -B data-update
           git add data.json
           git diff --cached --quiet || git commit -m "Automated update of data.json"
-          git push git@github.com:Vitaliy26rus/once-human-mods.git data-update --force
+          git push https://$PAT_TOKEN@github.com/Vitaliy26rus/once-human-mods.git data-update --force
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
