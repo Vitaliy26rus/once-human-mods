@@ -7,11 +7,13 @@ on:
 
 jobs:
   update-json:
-    runs-on: windows-latest  # или ubuntu-latest, не важно
+    runs-on: windows-latest  # или ubuntu-latest
 
     steps:
-      # 1️⃣ Клонируем репозиторий
+      # 1️⃣ Клонируем репозиторий без встроенного GITHUB_TOKEN
       - uses: actions/checkout@v3
+        with:
+          persist-credentials: false  # ⚠️ важно, чтобы не использовался github-actions[bot]
 
       # 2️⃣ Устанавливаем Python
       - uses: actions/setup-python@v4
@@ -24,7 +26,7 @@ jobs:
       # 4️⃣ Обновляем JSON
       - run: python update_data.py
 
-      # 5️⃣ Коммитим и пушим в ветку data-update через PAT
+      # 5️⃣ Коммитим и пушим через PAT
       - name: Commit and push
         run: |
           git config user.name "github-actions"
