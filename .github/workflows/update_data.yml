@@ -2,7 +2,7 @@ name: Update Once Human Mods Data
 
 on:
   schedule:
-    - cron: '0 3 * * *'  # ежедневно
+    - cron: '0 3 * * *'  # ежедневно в 03:00 UTC
   workflow_dispatch:
 
 jobs:
@@ -10,27 +10,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Клонируем репозиторий
+      # Клонируем репозиторий
       - uses: actions/checkout@v3
 
-      # 2️⃣ Устанавливаем Python
+      # Устанавливаем Python
       - uses: actions/setup-python@v4
         with:
           python-version: '3.12'
 
-      # 3️⃣ Устанавливаем зависимости
+      # Устанавливаем зависимости
       - run: pip install requests beautifulsoup4
 
-      # 4️⃣ Запускаем скрипт для обновления data.json
+      # Запускаем парсер
       - run: python update_data.py
 
-      # 5️⃣ Настраиваем SSH агент (последняя рабочая версия)
+      # Настраиваем SSH агент (работает)
       - name: Setup SSH
-        uses: webfactory/ssh-agent@v0.7.3
+        uses: webfactory/ssh-agent@v0.7
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      # 6️⃣ Коммитим и пушим изменения в ветку data-update
+      # Коммитим и пушим в ветку data-update
       - name: Commit and push changes
         run: |
           git config user.name "github-actions"
