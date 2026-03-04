@@ -1,6 +1,42 @@
 {
-  "meta": { "game": "Once Human", "languages": ["en","ru"], "sources": [] },
-  "containers": [],
+  "meta": {
+    "game": "Once Human",
+    "languages": [
+      "en",
+      "ru"
+    ],
+    "sources": [
+      "https://game8.co/games/Once-Human/archives/468371",
+      "https://game8.co/games/Once-Human/archives/468372",
+      "https://game8.co/games/Once-Human/archives/460076"
+    ]
+  },
+  "containers": [
+    {
+      "id": "weapon_crate",
+      "name": {
+        "en": "Weapon Crate",
+        "ru": "Ящик с оружейными модами"
+      },
+      "description": {
+        "en": "Weapon mods container",
+        "ru": "Ящик с оружейными модами"
+      },
+      "source": "https://game8.co/games/Once-Human/archives/468371"
+    },
+    {
+      "id": "gear_crate",
+      "name": {
+        "en": "Gear Crate",
+        "ru": "Ящик с модами брони"
+      },
+      "description": {
+        "en": "Armor mods container",
+        "ru": "Ящик с модами брони"
+      },
+      "source": "https://game8.co/games/Once-Human/archives/468372"
+    }
+  ],
   "mods": [],
   "suffixes": []
 }
