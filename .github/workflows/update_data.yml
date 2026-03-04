@@ -1,3 +1,10 @@
+name: Update Once Human Mods Data
+
+on:
+  schedule:
+    - cron: '0 3 * * *'  # ежедневно в 03:00 UTC
+  workflow_dispatch:
+  
 jobs:
   update-json:
     runs-on: ubuntu-latest
